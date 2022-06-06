@@ -24,19 +24,19 @@ export default defineConfig({
         background_color: "#ffffff",
         icons: [
           {
-            src: "/assets/logo.svg",
+            src: "icon-192.png",
             sizes: "192x192",
-            type: "image/svg",
+            type: "image/png",
           },
           {
-            src: "/assets/logo.svg",
+            src: "icon-512.png",
             sizes: "512x512",
-            type: "image/svg",
+            type: "image/png",
           },
           {
-            src: "/assets/logo.svg",
+            src: "icon-512.png",
             sizes: "512x512",
-            type: "image/svg",
+            type: "image/png",
             purpose: "any maskable",
           },
         ],
