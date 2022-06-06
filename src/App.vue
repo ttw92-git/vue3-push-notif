@@ -21,6 +21,47 @@ import ReloadPWA  from '@/components/ReloadPWA.vue'
   <RouterView />
 </template>
 
+<script>
+import firebase from "firebase/app";
+import "firebase/messaging";
+export default {
+  name: "App",
+  created() {
+    try {
+      firebase
+        .messaging()
+        .requestPermission()
+        .then(() => {
+          console.log("Notification permission granted");
+          firebase
+            .messaging()
+            .getToken()
+            .then((token) => {
+              window.console.log("token ", token);
+              this.receiveMessage();
+            });
+        })
+        .catch((err) => {
+          console.log("Unable to get token ", err);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  methods: {
+    receiveMessage() {
+      try {
+        firebase.messaging().onMessage((payload) => {
+          console.log("payload ", payload);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
+};
+</script>
+
 <style>
 @import '@/assets/base.css';
 

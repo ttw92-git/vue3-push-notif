@@ -1,0 +1,6 @@
+{
+    "name": "Vue Push Notif",
+    "short_name": "vue-fcm",
+    "start_url": "/",
+    "gcm_sender_id": "478329841565"
+  }
