@@ -17,11 +17,29 @@ export default defineConfig({
       strategies: "injectManifest",
       manifest: {
         name: "Vue-Push-Notif",
-        short_name: "VPN",
+        short_name: "Vue-Push-Notif",
         theme_color: "#ffffff",
         start_url: "/",
         display: "standalone",
-        background_color: "#ffffff"
+        background_color: "#ffffff",
+        icons: [
+          {
+            src: "/assets/logo.svg",
+            sizes: "192x192",
+            type: "image/svg",
+          },
+          {
+            src: "/assets/logo.svg",
+            sizes: "512x512",
+            type: "image/svg",
+          },
+          {
+            src: "/assets/logo.svg",
+            sizes: "512x512",
+            type: "image/svg",
+            purpose: "any maskable",
+          },
+        ],
       }
     })],
   resolve: {
