@@ -8,9 +8,11 @@
     "test:unit": "vitest --environment jsdom",
     "test:e2e": "start-server-and-test preview http://127.0.0.1:4173/ 'cypress open --e2e'",
     "test:e2e:ci": "start-server-and-test preview http://127.0.0.1:4173/ 'cypress run --e2e'",
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^4.18.1",
+    "serve-static": "^1.15.0",
     "vue": "^3.2.36",
     "vue-router": "^4.0.15"
   },
