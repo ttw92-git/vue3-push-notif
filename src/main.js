@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 
 // Initialize Firebase
-import firebase from "firebase/app";
-import "firebase/messaging";
+import firebase from "firebase/compat/app";
+import "firebase/compat/messaging";
 
 firebase.initializeApp({
     apiKey: "AIzaSyBhGlM36_ek81kjG2onnXDIwBM1TQR3Pp0",
@@ -17,10 +17,10 @@ firebase.initializeApp({
 
 navigator.serviceWorker
   .register("firebase-messaging-sw.js")
-  .then((registration) => {
-    const messaging = firebase.messaging();
-    messaging.useServiceWorker(registration);
-  })
+//   .then((registration) => {
+//     const messaging = firebase.messaging();
+//     messaging.useServiceWorker(registration);
+//   })
   .catch((err) => {
     console.log(err);
   });

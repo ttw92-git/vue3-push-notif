@@ -23,16 +23,17 @@ import ReloadPWA  from '@/components/ReloadPWA.vue'
 
 <script>
 import firebase from "firebase/compat/app";
-import "firebase/messaging";
+import "firebase/compat/messaging";
+
 export default {
   name: "App",
   created() {
     try {
-      firebase
-        .messaging()
-        .requestPermission()
-        .then(() => {
-          console.log("Notification permission granted");
+      // firebase
+      //   .messaging()
+      //   .requestPermission()
+      //   .then(() => {
+      //     console.log("Notification permission granted");
           firebase
             .messaging()
             .getToken()
@@ -40,10 +41,10 @@ export default {
               window.console.log("token ", token);
               this.receiveMessage();
             });
-        })
-        .catch((err) => {
-          console.log("Unable to get token ", err);
-        });
+      //   })
+      //   .catch((err) => {
+      //     console.log("Unable to get token ", err);
+      //   });
     } catch (e) {
       console.log(e);
     }
