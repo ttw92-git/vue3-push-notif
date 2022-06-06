@@ -16,12 +16,12 @@ export default defineConfig({
       includeAssets: ["/favicon.png"],
       strategies: "injectManifest",
       manifest: {
-        name: "Vue-Push-Notif",
-        short_name: "Vue-Push-Notif",
-        theme_color: "#ffffff",
+        name: "TTW-Push-Notif",
+        short_name: "TTW-Push-Notif",
+        theme_color: "#000000",
         start_url: "/",
         display: "standalone",
-        background_color: "#ffffff",
+        background_color: "#000000",
         icons: [
           {
             src: "icon-192.png",
