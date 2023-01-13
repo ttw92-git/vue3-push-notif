@@ -10,6 +10,9 @@ import ReloadPWA  from '@/components/ReloadPWA.vue'
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
+      <div>
+        Registered Number is 
+      </div>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -40,6 +43,9 @@ export default {
             .then((token) => {
               window.console.log("token ", token);
               this.receiveMessage();
+            })
+            .then(token => {
+              this.subscribeTokenToTopic(token, 'allUsers');
             });
       //   })
       //   .catch((err) => {
@@ -59,6 +65,21 @@ export default {
         console.log(e);
       }
     },
+    subscribeTokenToTopic(token, topic) {
+      fetch('https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/'+topic, {
+        method: 'POST',
+        headers: new Headers({
+          'Authorization': 'Bearer ya29.a0ARrdaM_15IPCdUYwUYV7-eJdmV3-3txwMhY9pAOYowUcVPGCh7pQvNnBzAznshaPyWh2AYPbGuLkNH7Hy732h74hibpRxPniSi-30B_VhHgdrexW1YH5P5jskqqEVWkF308w2AIRApit4pKMZNj64K3zH_yZ'
+        })
+      }).then(response => {
+        if (response.status < 200 || response.status >= 400) {
+          throw 'Error subscribing to topic: '+response.status + ' - ' + response.text();
+        }
+        console.log('Subscribed to "'+topic+'"');
+      }).catch(error => {
+        console.error(error);
+      })
+    }
   },
 };
 </script>
